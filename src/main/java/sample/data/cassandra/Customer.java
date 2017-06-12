@@ -2,6 +2,7 @@ package sample.data.cassandra;
 
 import java.util.UUID;
 
+import org.springframework.data.cassandra.mapping.Column;
 import org.springframework.data.cassandra.mapping.PrimaryKey;
 import org.springframework.data.cassandra.mapping.Table;
 
@@ -10,9 +11,9 @@ public class Customer {
 
 	@PrimaryKey
 	private UUID id;
-
+	@Column
 	private String firstName;
-
+	@Column
 	private String lastName;
 
 	public Customer() {
