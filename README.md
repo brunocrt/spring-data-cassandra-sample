@@ -6,7 +6,7 @@ To run the project, need to run below `cql` commands on Cassandra.
 == Keyspace Creation in Cassandra
 [source,indent=0]
 ----
-	CREATE KEYSPACE mykeyspace WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+	CREATE KEYSPACE sampleKS WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
 ----
 
 == Table Creation in Cassandra

@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>nivance</groupId>
 	<artifactId>spring-boot-sample-data-cassandra</artifactId>
 	<version>1.0.0</version>
@@ -17,6 +17,10 @@
 	</parent>
 
 	<properties>
+		<file_encoding>UTF-8</file_encoding>
+		<jdk.version>1.8</jdk.version>
+		<project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${file_encoding}</project.reporting.outputEncoding>
 	</properties>
 
 	<repositories>
@@ -93,8 +97,22 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<fork>true</fork>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${file_encoding}</encoding>
+					<compilerArgs>
+						<arg>-XX:MaxPermSize=512M</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
 		</plugins>
-		
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
